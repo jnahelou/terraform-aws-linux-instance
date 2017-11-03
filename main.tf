@@ -13,20 +13,20 @@
  *
  */
 
-resource "aws_security_group" "dedicated" {
-  name        = "SRV-${element(var.app_shortnames, count.index)}"
-  description = "Dedicated SG for ${element(var.app_shortnames, count.index)} only !"
-  vpc_id      = "${var.aws_vpc}"
-
-  count = "${var.instance_count}"
-
-  tags {
-    Name             = "SRV-${element(var.app_shortnames, count.index)}"
-    PROJECT          = "${var.app_project_tag}"
-    TerraformTFState = "${var.master_state_file}"
-    Terraform        = "true"
-  }
-}
+#resource "aws_security_group" "dedicated" {
+#  name        = "SRV-${element(var.app_shortnames, count.index)}"
+#  description = "Dedicated SG for ${element(var.app_shortnames, count.index)} only !"
+#  vpc_id      = "${var.aws_vpc}"
+#
+#  count = "${var.instance_count}"
+#
+#  tags {
+#    Name             = "SRV-${element(var.app_shortnames, count.index)}"
+#    PROJECT          = "${var.app_project_tag}"
+#    TerraformTFState = "${var.master_state_file}"
+#    Terraform        = "true"
+#  }
+#}
 
 resource "aws_instance" "instance" {
   instance_type = "${var.aws_instance_type}"
