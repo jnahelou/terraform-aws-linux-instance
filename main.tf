@@ -35,7 +35,8 @@ resource "aws_instance" "instance" {
   subnet_id     = "${var.aws_subnets[count.index%2]}"
   count         = "${var.instance_count}"
 
-  vpc_security_group_ids = ["${element(aws_security_group.dedicated.*.id, count.index)}", "${var.aws_unixbase}", "${compact(var.user_sg_ids)}"]
+  #vpc_security_group_ids = ["${element(aws_security_group.dedicated.*.id, count.index)}", "${var.aws_unixbase}", "${compact(var.user_sg_ids)}"]
+  vpc_security_group_ids = ["${var.aws_unixbase}", "${compact(var.user_sg_ids)}"]
 
   #Instance Extra features 
   iam_instance_profile        = "${var.iam_instance_profile}"
