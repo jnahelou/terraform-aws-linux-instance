@@ -13,7 +13,8 @@ output "instance_ids" {
   value = ["${aws_instance.instance.*.id}"]
 }
 
-output "sg_ids" {
-  #description = "Return a list which contain the list of security_group_id"
-  value = ["${aws_security_group.dedicated.*.id}"]
-}
+#output "sg_ids" {
+#  #description = "Return a list which contain the list of security_group_id"
+#  value = ["${aws_security_group.dedicated.*.id}"]
+#}
+
